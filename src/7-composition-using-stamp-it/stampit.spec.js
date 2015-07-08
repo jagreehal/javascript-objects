@@ -1,7 +1,7 @@
 const assert = require('chai').assert;
 import stampit from 'stampit';
 
-describe('Solving the problem with StampIt', ()=> {
+
 
   var device = stampit().init(function () {
     this.getName = function () {
@@ -30,6 +30,8 @@ describe('Solving the problem with StampIt', ()=> {
       return pictures;
     };
   });
+
+describe('Solving the problem with StampIt', ()=> {
 
   it('Should be able to create device', ()=> {
     let device1 = device({name: 'Cannon Camera'});
