@@ -1,5 +1,7 @@
 const assert = require('chai').assert;
 
+
+// See http://raganwald.com/2015/06/26/decorators-in-es7.html
 function mixin(behaviour, sharedBehaviour = {}) {
   const instanceKeys = Reflect.ownKeys(behaviour);
   const sharedKeys = Reflect.ownKeys(sharedBehaviour);
@@ -46,7 +48,7 @@ const pictureTaking = mixin({
     }
     let picture = {id: this[pictures].length};
     this[pictures].push(picture);
-    return picture;
+    return this;
   },
   getPictures(){
     return this[pictures];
@@ -80,7 +82,8 @@ describe('Solving the problem with decorators', ()=> {
   });
 
   it('Should be able to take load film pictures', ()=> {
-    @filmLoading @pictureTaking
+    @filmLoading
+    @pictureTaking
     class Camera extends Device {
     }
 
@@ -93,7 +96,8 @@ describe('Solving the problem with decorators', ()=> {
   });
 
   it('Should be able to phone', ()=> {
-    @callMaking class Phone extends Device {
+    @callMaking
+    class Phone extends Device {
     }
 
     let phone = new Phone('BT-100');
@@ -103,7 +107,8 @@ describe('Solving the problem with decorators', ()=> {
   });
 
   it('Should be able to create Smartphone', ()=> {
-    @callMaking @pictureTaking
+    @callMaking
+    @pictureTaking
     class Smartphone extends Device {
     }
 
