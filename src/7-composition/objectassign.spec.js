@@ -1,6 +1,5 @@
 const assert = require('chai').assert;
 
-
 const device = {
   getName() {
     return this.name;

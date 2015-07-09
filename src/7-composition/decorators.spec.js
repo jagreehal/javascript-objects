@@ -123,6 +123,6 @@ describe('Solving the problem with decorators', ()=> {
     assert.isFunction(smartphone2.makeCall);
     assert.isFunction(smartphone2.takePicture);
     smartphone2.takePicture();
-    assert.equal(smartphone2.getPictures().length, 1)
+    assert.equal(smartphone2.getPictures().length, 1);
   });
 });

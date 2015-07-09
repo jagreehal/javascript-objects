@@ -21,12 +21,12 @@ import stampit from 'stampit';
 
   var pictureTaking = stampit().init(function () {
     var pictures = [];
-    this.takePicture = function () {
+    this.take = function () {
       let picture = {id: pictures.length};
       pictures.push(picture);
       return picture;
     };
-    this.getPictures = ()=> {
+    this.get = ()=> {
       return pictures;
     };
   });
@@ -41,11 +41,11 @@ describe('Solving the problem with StampIt', ()=> {
   it('Should be able to take pictures', ()=> {
     var pictureTaker = pictureTaking();
 
-    pictureTaker.takePicture();
-    pictureTaker.takePicture();
+    pictureTaker.take();
+    pictureTaker.take();
 
     assert.isUndefined(pictureTaker.pictures);
-    assert.equal(pictureTaker.getPictures().length, 2);
+    assert.equal(pictureTaker.get().length, 2);
   });
 
   it('Should be able to take load film pictures', ()=> {
@@ -55,7 +55,7 @@ describe('Solving the problem with StampIt', ()=> {
 
     assert.equal(camera1.getName(), 'Cannon');
     assert.isFunction(camera1.loadFilm);
-    assert.isFunction(camera1.takePicture);
+    assert.isFunction(camera1.take);
     assert.isNotFunction(camera1.makeCall);
   });
 
@@ -72,19 +72,19 @@ describe('Solving the problem with StampIt', ()=> {
     const smartphone = stampit.compose(device, callMaking, pictureTaking);
 
     let smartphone1 = smartphone({name: 'Nexus'});
-    smartphone1.takePicture();
-    smartphone1.takePicture();
+    smartphone1.take();
+    smartphone1.take();
 
     assert.equal(smartphone1.getName(), 'Nexus');
     assert.isFunction(smartphone1.makeCall);
-    assert.isFunction(smartphone1.takePicture);
+    assert.isFunction(smartphone1.take);
     assert.isNotFunction(smartphone1.filmLoading);
 
-    assert.equal(smartphone1.getPictures().length, 2);
+    assert.equal(smartphone1.get().length, 2);
 
     let smartphone2 = smartphone({name: 'iPhone'});
-    smartphone2.takePicture();
+    smartphone2.take();
     assert.equal(smartphone2.getName(), 'iPhone');
-    assert.equal(smartphone2.getPictures().length, 1);
+    assert.equal(smartphone2.get().length, 1);
   });
 });
