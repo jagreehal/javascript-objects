@@ -1,6 +1,6 @@
 const assert = require('chai').assert;
 
-export class Device {
+class Device {
   constructor(name) {
     this.name = name;
   }

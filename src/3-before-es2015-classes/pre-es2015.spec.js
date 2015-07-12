@@ -1,8 +1,9 @@
 const assert = require('chai').assert;
 
 describe('Getting to the ES5 holy grail', () => {
-  function Device(name) {
-    this.name = name || 'Unknown';
+  // here we have a function we want to inherit from
+  function Device(name = 'Unknown') {
+    this.name = name;
   }
 
   Device.prototype.getName = function () {
@@ -25,7 +26,7 @@ describe('Getting to the ES5 holy grail', () => {
     assert.equal(camera.getName(), 'Unknown');
   });
 
-  it('Breaks the prototype', ()=> {
+  it('Rent-a-Constructor (breaks the prototype)', ()=> {
     // arrange
     function Camera() {
       Device.apply(this, arguments);
@@ -39,10 +40,11 @@ describe('Getting to the ES5 holy grail', () => {
     assert.instanceOf(camera, Camera);
 
     assert.equal(camera.name, 'Cannon');
+
     assert.isUndefined(camera.getName);
   });
 
-  it('Makes copies of the properties', ()=> {
+  it('Rent and Set Prototype (makes copies of the properties)', ()=> {
     // arrange
     function Camera() {
       Device.apply(this, arguments);
@@ -62,7 +64,7 @@ describe('Getting to the ES5 holy grail', () => {
     assert.equal(camera.name, 'Unknown');
   });
 
-  it('Constructor points to the wrong object', ()=> {
+  it('Share the Prototype (but constructor points to the wrong object)', ()=> {
     // arrange
     function Camera() {
       Device.apply(this, arguments);
@@ -87,7 +89,7 @@ describe('Getting to the ES5 holy grail', () => {
     assert.equal(camera.constructor.name, 'Device');
   });
 
-  it('At last!', ()=> {
+  it('A Temporary Constructor (finally works!)', ()=> {
     // arrange
     function Camera() {
       Device.apply(this, arguments);

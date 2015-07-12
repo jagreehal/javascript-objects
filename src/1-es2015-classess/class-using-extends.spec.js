@@ -22,6 +22,7 @@ describe('Using extends', function () {
 
     assert.equal(camera.name, 'Camera');
     assert.equal(camera.getName(), 'Parent returns Camera');
+
     assert.instanceOf(camera, Device);
     assert.instanceOf(camera, Camera);
   });
