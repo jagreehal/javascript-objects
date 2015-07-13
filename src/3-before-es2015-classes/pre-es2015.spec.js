@@ -95,7 +95,7 @@ describe('Getting to the ES5 holy grail', () => {
 
     assert.ok(Object.getPrototypeOf(camera).getName);
 
-    assert.equal(camera.constructor.name, 'Device');
+    assert.equal(camera.constructor, Device);
   });
 
   it('A Temporary Constructor (finally works!)', ()=> {

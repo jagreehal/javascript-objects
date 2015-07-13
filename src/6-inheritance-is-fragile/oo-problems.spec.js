@@ -1,28 +1,26 @@
-const assert = require('chai').assert;
+class Device {
+  constructor(name) {
+    this.name = name || 'Unknown';
+  }
+}
 
-describe('Inheritance will lead to problems', () => {
-  class Device {
-    constructor(name) {
-      this.name = name || 'Unknown';
-    }
+class Camera extends Device {
+  takePicture(name) {
   }
 
-  class Camera extends Device {
-    takePicture(name) {
-    }
-    someOtherFunction(name) {
-    }
+  someOtherFunction(name) {
   }
+}
 
-  class CameraThatLoadsFilm extends Camera {
-    loadFilm() {
-    }
+class CameraThatLoadsFilm extends Camera {
+  loadFilm() {
   }
+}
 
-  class Phone extends Device {
-    makeCall() {
-    }
+class Phone extends Device {
+  makeCall() {
   }
+}
 
-  class SmartPhone{}
-});
+class SmartPhone {
+}

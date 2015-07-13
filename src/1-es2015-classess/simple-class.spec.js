@@ -12,6 +12,7 @@ class Device {
 
 describe('A simple class', function () {
   it('Can create class', ()=> {
+
     let device = new Device('Camera');
 
     assert.equal(device.getName(), 'Camera');

@@ -1,10 +1,12 @@
 # javascript-objects
 
-## So with ES2015 finalised what does this mean for JavaScript classes and objects.
+## JavaScript classes and objects using ES2015 and beyond
 
 For this talk I'm using [wallaby.js](http://wallabyjs.com/). It will change your life.
      
-There are no slides.
+There are no slides :)
+
+The code is compiled via [babel](http://babeljs.io/)
 
 If you see any errors or have a suggestion please contact me [@jagreehal](http://twitter.com/jagreehal)
 
