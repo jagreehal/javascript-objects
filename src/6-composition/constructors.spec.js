@@ -9,7 +9,6 @@ describe('Composition using constructors', function () {
   function Camera() {
     this.takePicture = ()=> {
     };
-    this.pictures = [];
   }
 
   function CameraDevice(...args) {

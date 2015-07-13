@@ -2,8 +2,8 @@ const assert = require('chai').assert;
 
 describe('ES2015 classes makes inheritance easy', () => {
   class Device {
-    constructor(name) {
-      this.name = name || 'Unknown';
+    constructor(name = 'Unknown') {
+      this.name = name;
     }
 
     getName() {

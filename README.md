@@ -11,3 +11,5 @@ The code is compiled via [babel](http://babeljs.io/)
 If you see any errors or have a suggestion please contact me [@jagreehal](http://twitter.com/jagreehal)
 
 The code used in this talk is on [github](https://github.com/jagreehal/javascript-objects).
+
+BTW - I use ES2105 syntax just like everyone else... inconsistency ;) 

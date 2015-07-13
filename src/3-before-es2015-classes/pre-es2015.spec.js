@@ -1,7 +1,7 @@
 const assert = require('chai').assert;
 
-describe('Getting to the ES5 holy grail', () => {
-  // here we have a function we want to inherit from
+describe('ES5 to ES2015 classes', () => {
+
   function Device(name = 'Unknown') {
     this.name = name;
   }

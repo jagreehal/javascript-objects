@@ -17,7 +17,6 @@ function Camera(name) {
 inherits(Camera, Device);
 
 Camera.prototype.takePicture = ()=> {
-  this.pictures.push({});
 };
 
 describe('Composition using util.inherits', ()=> {
