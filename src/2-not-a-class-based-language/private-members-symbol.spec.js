@@ -6,7 +6,7 @@ describe('Using Symbol to create private property', () => {
     constructor() {
       this[secret] = 'chocoholic';
     }
-    getName() {
+    getSecret() {
       return this[secret];
     }
   }
@@ -15,7 +15,7 @@ describe('Using Symbol to create private property', () => {
     let device1 = new Device();
 
     assert.isUndefined(device1.secret);
-    assert.equal(device1.getName(), 'chocoholic');
+    assert.equal(device1.getSecret(), 'chocoholic');
   });
 
 });

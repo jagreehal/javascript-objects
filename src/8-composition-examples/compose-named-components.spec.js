@@ -3,14 +3,14 @@ const assert = require('chai').assert;
 const objectFactory = function (o, ...props) {
   return {
     create(...args) {
-      const ob = Object.create(o, props.reduce((p, prop)=> {
+      const composedObject = Object.create(o, props.reduce((p, prop)=> {
         p[prop.name] = {value: prop()};
         return p;
       }, {}));
-      if (typeof ob.init === 'function') {
-        ob.init(args);
+      if (typeof composedObject.init === 'function') {
+        composedObject.init(args);
       }
-      return ob;
+      return composedObject;
     }
   };
 };
@@ -42,23 +42,25 @@ const call = ()=> {
   };
 };
 
-describe('Creating objects with non-enumerable components', ()=> {
+describe('Composing with named components', ()=> {
 
   it('Should be able to create Smartphone', ()=> {
+
     const smartphoneFactory = objectFactory(device, call, picture);
+
     let smartphone1 = smartphoneFactory.create('Nexus');
+    let smartphone2 = smartphoneFactory.create('iPhone');
+
     smartphone1.picture.take();
     smartphone1.picture.take();
 
     assert.equal(smartphone1.name, 'Nexus');
-    assert.isFunction(smartphone1.call.make);
-    assert.isFunction(smartphone1.picture.take);
-    assert.isNotFunction(smartphone1.filmLoading);
-
     assert.equal(smartphone1.picture.get().length, 2);
 
-    let smartphone2 = smartphoneFactory.create('iPhone');
+    assert.isFunction(smartphone1.call.make);
+
     smartphone2.picture.take();
+
     assert.equal(smartphone2.name, 'iPhone');
     assert.equal(smartphone2.picture.get().length, 1);
   });

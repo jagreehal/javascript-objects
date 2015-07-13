@@ -11,19 +11,16 @@ Object.defineProperty(Device.prototype, 'takePicture', {
   }
 });
 
-describe('Composition using extend', ()=> {
+describe('Composition using Object.defineProperty', ()=> {
   it('Can extend objects', ()=> {
 
     let camera = new Device('Cannon');
     assert.equal(camera.name, 'Cannon');
     assert.isFunction(camera.takePicture);
+    assert.ok(Device.prototype.takePicture);
   });
 
-  it('Cannot add duplicate', ()=> {
-
+  it('Cannot add duplicate peroperty', ()=> {
     //Object.defineProperty(Device.prototype, 'takePicture', {value: 1});
-    let camera = new Device('Cannon');
-    assert.equal(camera.name, 'Cannon');
-    assert.isFunction(camera.takePicture);
   });
 });

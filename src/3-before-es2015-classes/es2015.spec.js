@@ -11,15 +11,12 @@ describe('ES2015 classes makes inheritance easy', () => {
     }
   }
 
-  it('Should be able to create Camera class', ()=> {
-    // arrange
-    class Camera extends Device {
-    }
+  class Camera extends Device {
+  }
 
-    // act
+  it('Should be able to create Camera class', ()=> {
     let camera = new Camera('Cannon');
 
-    // assert
     assert.instanceOf(camera, Device);
     assert.instanceOf(camera, Camera);
 
@@ -27,6 +24,7 @@ describe('ES2015 classes makes inheritance easy', () => {
     delete camera.name;
     assert.isUndefined(camera.name);
 
+    assert.equal(Object.getPrototypeOf(camera).getName, camera.getName);
     assert.equal(camera.constructor.name, 'Camera');
   });
 });

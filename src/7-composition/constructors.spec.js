@@ -21,6 +21,7 @@ describe('Composition using constructors', function () {
     let cameraDevice = new CameraDevice('Cannon');
 
     assert.equal(cameraDevice.name, 'Cannon');
-
+    assert.isFunction(cameraDevice.takePicture);
+    assert.notOk(CameraDevice.prototype.takePicture);
   });
 });

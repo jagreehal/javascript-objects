@@ -23,6 +23,9 @@ describe('Getting to the ES5 holy grail', () => {
     // assert
     assert.instanceOf(camera, Device);
     assert.instanceOf(camera, Camera);
+
+    assert.ok(Object.getPrototypeOf(camera).getName);
+
     assert.equal(camera.getName(), 'Unknown');
   });
 
@@ -40,6 +43,8 @@ describe('Getting to the ES5 holy grail', () => {
     assert.instanceOf(camera, Camera);
 
     assert.equal(camera.name, 'Cannon');
+
+    assert.notOk(Object.getPrototypeOf(camera).getName);
 
     assert.isUndefined(camera.getName);
   });
@@ -62,6 +67,8 @@ describe('Getting to the ES5 holy grail', () => {
     assert.equal(camera.getName(), 'Cannon');
     delete camera.name;
     assert.equal(camera.name, 'Unknown');
+
+    assert.ok(Object.getPrototypeOf(camera).getName);
   });
 
   it('Share the Prototype (but constructor points to the wrong object)', ()=> {
@@ -86,6 +93,8 @@ describe('Getting to the ES5 holy grail', () => {
     delete camera.name;
     assert.isUndefined(camera.name);
 
+    assert.ok(Object.getPrototypeOf(camera).getName);
+
     assert.equal(camera.constructor.name, 'Device');
   });
 
@@ -108,6 +117,8 @@ describe('Getting to the ES5 holy grail', () => {
     assert.equal(camera.getName(), 'Cannon');
     delete camera.name;
     assert.isUndefined(camera.name);
+
+    assert.ok(Object.getPrototypeOf(camera).getName);
 
     assert.equal(camera.constructor, Camera);
   });

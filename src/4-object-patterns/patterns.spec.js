@@ -22,6 +22,7 @@ describe('Comparing object patterns', function () {
 
     // takePicture are copied across instances
     assert.notEqual(camera1.takePicture, camera2.takePicture);
+    assert.notEqual(Object.getPrototypeOf(camera1).takePicture, camera1.takePicture);
   });
 
   it('A function constructor (with prototypes)', ()=> {
@@ -45,6 +46,7 @@ describe('Comparing object patterns', function () {
 
     // takePicture shared across instances
     assert.equal(camera1.takePicture, camera2.takePicture);
+    assert.equal(Object.getPrototypeOf(camera1).takePicture, camera1.takePicture);
   });
 
   it('Object.create (no constructor have to call init)', ()=> {
@@ -57,37 +59,6 @@ describe('Comparing object patterns', function () {
         return this.random;
       }
     };
-
-    let camera1 = Object.create(Camera);
-    camera1.init('Cannon');
-
-    let camera2 = Object.create(Camera);
-    camera2.init('Panasonic');
-
-    assert.equal(camera1.name, 'Cannon');
-    assert.equal(camera2.name, 'Panasonic');
-
-    assert.equal(camera1.takePicture(), camera1.random);
-    assert.equal(camera2.takePicture(), camera2.random);
-
-    // takePicture shared across instances
-    assert.equal(camera1.takePicture, camera2.takePicture);
-    assert.equal(Object.getPrototypeOf(camera1).takePicture, camera1.takePicture);
-  });
-
-  it('Define property', ()=> {
-    let Camera = {
-      init(name){
-        this.name = name;
-        this.random = Math.random();
-      }
-    };
-
-    Object.defineProperty(Camera, 'takePicture', {
-      value: function(){
-        return this.random;
-      }
-    });
 
     let camera1 = Object.create(Camera);
     camera1.init('Cannon');

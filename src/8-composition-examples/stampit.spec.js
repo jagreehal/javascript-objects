@@ -21,12 +21,6 @@ const pictureTaking = stampit().init(function () {
   };
 });
 
-//const badPictureTaking = stampit().init(function () {
-//  this.takePicture = function(){
-//    return [];
-//  };
-//})();
-
 describe('Solving the problem with StampIt', ()=> {
 
   it('Should be able to create Smartphone', ()=> {
@@ -34,17 +28,16 @@ describe('Solving the problem with StampIt', ()=> {
     const smartphone = stampit.compose(device, callMaking, pictureTaking);
 
     let smartphone1 = smartphone({name: 'Nexus'});
+    let smartphone2 = smartphone({name: 'iPhone'});
+
     smartphone1.takePicture();
     smartphone1.takePicture();
 
     assert.equal(smartphone1.name, 'Nexus');
-    assert.isFunction(smartphone1.makeCall);
-    assert.isFunction(smartphone1.takePicture);
-    assert.isNotFunction(smartphone1.filmLoading);
-
     assert.equal(smartphone1.getPictures().length, 2);
 
-    let smartphone2 = smartphone({name: 'iPhone'});
+    assert.isFunction(smartphone1.makeCall);
+
     smartphone2.takePicture();
     assert.equal(smartphone2.name, 'iPhone');
     assert.equal(smartphone2.getPictures().length, 1);

@@ -7,7 +7,7 @@ describe('Using WeakMap to create private property', () => {
       secret.set(this, 'chocoholic');
     }
 
-    getName() {
+    getSecret() {
       return secret.get(this);
     }
   }
@@ -16,7 +16,7 @@ describe('Using WeakMap to create private property', () => {
     let device1 = new Device();
 
     assert.isUndefined(device1.secret);
-    assert.equal(device1.getName(), 'chocoholic');
+    assert.equal(device1.getSecret(), 'chocoholic');
   });
 
 });
