@@ -21,7 +21,7 @@ describe('Every object inherits from a prototype', function () {
     assert.notOk(o.toString);
   });
 
-  it('Even a function', ()=> {
+  it('Even a function has a prototype', ()=> {
     let f = function () {
     };
 
