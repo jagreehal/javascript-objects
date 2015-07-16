@@ -11,10 +11,10 @@ describe('Comparing object patterns', function () {
       };
     }
 
-    let camera1 = new Camera('Cannon');
+    let camera1 = new Camera('Canon');
     let camera2 = new Camera('Panasonic');
 
-    assert.equal(camera1.name, 'Cannon');
+    assert.equal(camera1.name, 'Canon');
     assert.equal(camera2.name, 'Panasonic');
 
     assert.equal(camera1.takePicture(), camera1.random);
@@ -35,10 +35,10 @@ describe('Comparing object patterns', function () {
       return this.random;
     };
 
-    let camera1 = new Camera('Cannon');
+    let camera1 = new Camera('Canon');
     let camera2 = new Camera('Panasonic');
 
-    assert.equal(camera1.name, 'Cannon');
+    assert.equal(camera1.name, 'Canon');
     assert.equal(camera2.name, 'Panasonic');
 
     assert.equal(camera1.takePicture(), camera1.random);
@@ -61,12 +61,12 @@ describe('Comparing object patterns', function () {
     };
 
     let camera1 = Object.create(Camera);
-    camera1.init('Cannon');
+    camera1.init('Canon');
 
     let camera2 = Object.create(Camera);
     camera2.init('Panasonic');
 
-    assert.equal(camera1.name, 'Cannon');
+    assert.equal(camera1.name, 'Canon');
     assert.equal(camera2.name, 'Panasonic');
 
     assert.equal(camera1.takePicture(), camera1.random);

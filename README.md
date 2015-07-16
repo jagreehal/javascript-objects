@@ -12,4 +12,4 @@ If you see any errors or have a suggestion please contact me [@jagreehal](http:/
 
 The code used in this talk is on [github](https://github.com/jagreehal/javascript-objects).
 
-BTW - I use ES2105 syntax just like everyone else... inconsistency ;) 
+BTW - I use ES2015 syntax just like everyone else... inconsistency ;) 

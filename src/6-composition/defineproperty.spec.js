@@ -14,8 +14,8 @@ Object.defineProperty(Device.prototype, 'takePicture', {
 describe('Composition using Object.defineProperty', ()=> {
   it('Can extend objects', ()=> {
 
-    let camera = new Device('Cannon');
-    assert.equal(camera.name, 'Cannon');
+    let camera = new Device('Canon');
+    assert.equal(camera.name, 'Canon');
     assert.isFunction(camera.takePicture);
     assert.ok(Device.prototype.takePicture);
   });

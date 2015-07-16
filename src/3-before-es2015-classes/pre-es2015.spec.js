@@ -18,7 +18,7 @@ describe('ES5 to ES2015 classes', () => {
     Camera.prototype = new Device();
 
     // act
-    let camera = new Camera('Cannon');
+    let camera = new Camera('Canon');
 
     // assert
     assert.instanceOf(camera, Device);
@@ -36,13 +36,13 @@ describe('ES5 to ES2015 classes', () => {
     }
 
     // act
-    let camera = new Camera('Cannon');
+    let camera = new Camera('Canon');
 
     // assert
     assert.notInstanceOf(camera, Device);
     assert.instanceOf(camera, Camera);
 
-    assert.equal(camera.name, 'Cannon');
+    assert.equal(camera.name, 'Canon');
 
     assert.notOk(Object.getPrototypeOf(camera).getName);
 
@@ -58,13 +58,13 @@ describe('ES5 to ES2015 classes', () => {
     Camera.prototype = new Device();
 
     // act
-    let camera = new Camera('Cannon');
+    let camera = new Camera('Canon');
 
     // assert
     assert.instanceOf(camera, Device);
     assert.instanceOf(camera, Camera);
 
-    assert.equal(camera.getName(), 'Cannon');
+    assert.equal(camera.getName(), 'Canon');
     delete camera.name;
     assert.equal(camera.name, 'Unknown');
 
@@ -83,13 +83,13 @@ describe('ES5 to ES2015 classes', () => {
     Camera.prototype = new F();
 
     // act
-    let camera = new Camera('Cannon');
+    let camera = new Camera('Canon');
 
     // assert
     assert.instanceOf(camera, Device);
     assert.instanceOf(camera, Camera);
 
-    assert.equal(camera.getName(), 'Cannon');
+    assert.equal(camera.getName(), 'Canon');
     delete camera.name;
     assert.isUndefined(camera.name);
 
@@ -111,10 +111,10 @@ describe('ES5 to ES2015 classes', () => {
     Camera.prototype.constructor = Camera;
 
     // act
-    let camera = new Camera('Cannon');
+    let camera = new Camera('Canon');
 
     // assert
-    assert.equal(camera.getName(), 'Cannon');
+    assert.equal(camera.getName(), 'Canon');
     delete camera.name;
     assert.isUndefined(camera.name);
 

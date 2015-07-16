@@ -21,8 +21,8 @@ Camera.prototype.takePicture = ()=> {
 
 describe('Composition using util.inherits', ()=> {
   it('Can extend objects', ()=> {
-    let camera = new Camera('Cannon');
-    assert.equal('Cannon', camera.name);
+    let camera = new Camera('Canon');
+    assert.equal('Canon', camera.name);
     assert.isFunction(camera.takePicture);
   });
 });

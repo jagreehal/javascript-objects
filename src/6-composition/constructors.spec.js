@@ -17,9 +17,9 @@ describe('Composition using constructors', function () {
   }
 
   it('Can compose', ()=> {
-    let cameraDevice = new CameraDevice('Cannon');
+    let cameraDevice = new CameraDevice('Canon');
 
-    assert.equal(cameraDevice.name, 'Cannon');
+    assert.equal(cameraDevice.name, 'Canon');
     assert.isFunction(cameraDevice.takePicture);
     assert.notOk(CameraDevice.prototype.takePicture);
   });

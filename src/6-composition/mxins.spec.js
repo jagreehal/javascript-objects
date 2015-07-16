@@ -24,8 +24,8 @@ describe('Composition using extend', ()=> {
 
     extend(Device.prototype, pictureTaking);
 
-    let camera = new Device('Cannon');
-    assert.equal(camera.name, 'Cannon');
+    let camera = new Device('Canon');
+    assert.equal(camera.name, 'Canon');
     assert.isFunction(camera.takePicture);
   });
 });
