@@ -1,5 +1,7 @@
 # javascript-objects
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/jagreehal/javascript-objects.svg)](https://greenkeeper.io/)
+
 ## JavaScript classes and objects using ES2015 and beyond
 
 For this talk I'm using [wallaby.js](http://wallabyjs.com/). It will change your life.
